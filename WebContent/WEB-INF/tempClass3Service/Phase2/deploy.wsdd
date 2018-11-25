@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from tempClass3Service WSDL service -->
+
+  <service name="tempClass3" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Phase2"/>
+      <parameter name="wsdlServiceElement" value="tempClass3Service"/>
+      <parameter name="schemaQualified" value="http://Phase2"/>
+      <parameter name="wsdlServicePort" value="tempClass3"/>
+      <parameter name="className" value="Phase2.tempClass3"/>
+      <parameter name="wsdlPortType" value="tempClass3"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="sellShares" qname="operNS:sellShares" returnQName="retNS:sellSharesReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:str" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="aggregateAmountPerItemCategory1" qname="operNS:aggregateAmountPerItemCategory1" returnQName="retNS:aggregateAmountPerItemCategory1Return" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cat" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateSharePerEmployee" qname="operNS:updateSharePerEmployee" returnQName="retNS:updateSharePerEmployeeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cat" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:symbol" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ts" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:totalam" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ttype" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="buyShares" qname="operNS:buyShares" returnQName="retNS:buySharesReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:str" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUSD" qname="operNS:getUSD" returnQName="retNS:getUSDReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getstrtoint" qname="operNS:getstrtoint" returnQName="retNS:getstrtointReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:s" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="remun" qname="operNS:remun" returnQName="retNS:remunReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:s" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="remun aggregateAmountPerItemCategory1 sellShares getUSD updateSharePerEmployee getstrtoint buyShares"/>
+
+  </service>
+</deployment>

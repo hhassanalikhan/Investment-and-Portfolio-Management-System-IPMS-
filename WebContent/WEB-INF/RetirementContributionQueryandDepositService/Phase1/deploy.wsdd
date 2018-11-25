@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from RetirementContributionQueryandDepositService WSDL service -->
+
+  <service name="RetirementContributionQueryandDeposit" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Phase1"/>
+      <parameter name="wsdlServiceElement" value="RetirementContributionQueryandDepositService"/>
+      <parameter name="schemaQualified" value="http://Phase1"/>
+      <parameter name="wsdlServicePort" value="RetirementContributionQueryandDeposit"/>
+      <parameter name="className" value="Phase1.RetirementContributionQueryandDeposit"/>
+      <parameter name="wsdlPortType" value="RetirementContributionQueryandDeposit"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getId" qname="operNS:getId" returnQName="retNS:getIdReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="monthlyContributionQuery" qname="operNS:monthlyContributionQuery" returnQName="retNS:monthlyContributionQueryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="monthlyContributionQuery1" qname="operNS:monthlyContributionQuery1" returnQName="retNS:monthlyContributionQuery1Return" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="depositIntoRetirementAccount" qname="operNS:depositIntoRetirementAccount" returnQName="retNS:depositIntoRetirementAccountReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:p" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="depositIntoRetirementAccount monthlyContributionQuery1 monthlyContributionQuery getId"/>
+
+  </service>
+</deployment>

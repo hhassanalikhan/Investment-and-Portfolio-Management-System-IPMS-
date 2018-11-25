@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from PortfolioManagementServiceService WSDL service -->
+
+  <service name="PortfolioManagementService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://FatimaProj"/>
+      <parameter name="wsdlServiceElement" value="PortfolioManagementServiceService"/>
+      <parameter name="schemaQualified" value="http://FatimaProj"/>
+      <parameter name="wsdlServicePort" value="PortfolioManagementService"/>
+      <parameter name="className" value="FatimaProj.PortfolioManagementService"/>
+      <parameter name="wsdlPortType" value="PortfolioManagementService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://FatimaProj" xmlns:retNS="http://FatimaProj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateEmployeeRetirementContribution" qname="operNS:updateEmployeeRetirementContribution" returnQName="retNS:updateEmployeeRetirementContributionReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:percentage" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://FatimaProj" xmlns:retNS="http://FatimaProj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createPortFolio" qname="operNS:createPortFolio" returnQName="retNS:createPortFolioReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:string" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://FatimaProj" xmlns:retNS="http://FatimaProj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updatePortFolio" qname="operNS:updatePortFolio" returnQName="retNS:updatePortFolioReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:string" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://FatimaProj" xmlns:retNS="http://FatimaProj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="viewAccountSummary" qname="operNS:viewAccountSummary" returnQName="retNS:viewAccountSummaryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:argEmpolyeeId" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://FatimaProj" xmlns:retNS="http://FatimaProj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="viewAccountDetails" qname="operNS:viewAccountDetails" returnQName="retNS:viewAccountDetailsReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:argEmpolyeeId" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://FatimaProj" xmlns:retNS="http://FatimaProj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryPortFolio" qname="operNS:queryPortFolio" returnQName="retNS:queryPortFolioReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:argEmpolyeeId" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://FatimaProj" xmlns:retNS="http://FatimaProj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="aggregateAmountPerItemCategory" qname="operNS:aggregateAmountPerItemCategory" returnQName="retNS:aggregateAmountPerItemCategoryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://FatimaProj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:category" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="createPortFolio updateEmployeeRetirementContribution aggregateAmountPerItemCategory viewAccountDetails updatePortFolio viewAccountSummary queryPortFolio"/>
+
+  </service>
+</deployment>

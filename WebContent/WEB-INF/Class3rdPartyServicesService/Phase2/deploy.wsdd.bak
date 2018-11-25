@@ -1,0 +1,36 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Class3rdPartyServicesService WSDL service -->
+
+  <service name="Class3rdPartyServices" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Phase2"/>
+      <parameter name="wsdlServiceElement" value="Class3rdPartyServicesService"/>
+      <parameter name="schemaQualified" value="http://Phase2"/>
+      <parameter name="wsdlServicePort" value="Class3rdPartyServices"/>
+      <parameter name="className" value="Phase2.Class3RdPartyServicesSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Class3rdPartyServices"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="converToFrom" qname="operNS:converToFrom" xmlns:operNS="http://Phase2" returnQName="retNS:converToFromReturn" xmlns:retNS="http://Phase2" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:from" xmlns:pns="http://Phase2" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:to" xmlns:pns="http://Phase2" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getQuoteAm" qname="operNS:getQuoteAm" xmlns:operNS="http://Phase2" returnQName="retNS:getQuoteAmReturn" xmlns:retNS="http://Phase2" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:s" xmlns:pns="http://Phase2" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getQuotePr" qname="operNS:getQuotePr" xmlns:operNS="http://Phase2" returnQName="retNS:getQuotePrReturn" xmlns:retNS="http://Phase2" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:s" xmlns:pns="http://Phase2" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="converToFrom getQuoteAm getQuotePr"/>
+
+  </service>
+</deployment>

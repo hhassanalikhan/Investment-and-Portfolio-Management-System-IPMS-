@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SymbolLookupServiceService WSDL service -->
+
+  <service name="SymbolLookupService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://FatimaProj"/>
+      <parameter name="wsdlServiceElement" value="SymbolLookupServiceService"/>
+      <parameter name="schemaQualified" value="http://FatimaProj"/>
+      <parameter name="wsdlServicePort" value="SymbolLookupService"/>
+      <parameter name="className" value="FatimaProj.SymbolLookupServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="SymbolLookupService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="stockSymbolByCategory" qname="operNS:stockSymbolByCategory" xmlns:operNS="http://FatimaProj" returnQName="retNS:stockSymbolByCategoryReturn" xmlns:retNS="http://FatimaProj" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:category" xmlns:pns="http://FatimaProj" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="commoditySymbolByCategory" qname="operNS:commoditySymbolByCategory" xmlns:operNS="http://FatimaProj" returnQName="retNS:commoditySymbolByCategoryReturn" xmlns:retNS="http://FatimaProj" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:category" xmlns:pns="http://FatimaProj" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="symbolByName" qname="operNS:symbolByName" xmlns:operNS="http://FatimaProj" returnQName="retNS:symbolByNameReturn" xmlns:retNS="http://FatimaProj" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://FatimaProj" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="symbolByExchange" qname="operNS:symbolByExchange" xmlns:operNS="http://FatimaProj" returnQName="retNS:symbolByExchangeReturn" xmlns:retNS="http://FatimaProj" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:exchange" xmlns:pns="http://FatimaProj" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="stockSymbolByCategory symbolByExchange symbolByName commoditySymbolByCategory"/>
+
+  </service>
+</deployment>

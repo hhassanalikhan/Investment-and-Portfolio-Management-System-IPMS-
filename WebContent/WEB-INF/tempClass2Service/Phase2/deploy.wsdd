@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from tempClass2Service WSDL service -->
+
+  <service name="tempClass2" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Phase2"/>
+      <parameter name="wsdlServiceElement" value="tempClass2Service"/>
+      <parameter name="schemaQualified" value="http://Phase2"/>
+      <parameter name="wsdlServicePort" value="tempClass2"/>
+      <parameter name="className" value="Phase2.tempClass2"/>
+      <parameter name="wsdlPortType" value="tempClass2"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateSharePerEmployee" qname="operNS:updateSharePerEmployee" returnQName="retNS:updateSharePerEmployeeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cat" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:symbol" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ts" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:totalam" type="tns:int"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ttype" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="toBeUpSold" qname="operNS:toBeUpSold" returnQName="retNS:toBeUpSoldReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:string" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase2" xmlns:retNS="http://Phase2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="toBeBought" qname="operNS:toBeBought" returnQName="retNS:toBeBoughtReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:string" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="toBeUpSold updateSharePerEmployee toBeBought"/>
+
+  </service>
+</deployment>

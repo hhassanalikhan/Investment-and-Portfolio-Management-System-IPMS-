@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Phase1" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Phase1" xmlns:intf="http://Phase1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Phase1" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getIdReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="monthlyContributionQuery">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="monthlyContributionQueryResponse">
+    <complexType>
+     <sequence>
+      <element name="monthlyContributionQueryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="monthlyContributionQuery1">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="monthlyContributionQuery1Response">
+    <complexType>
+     <sequence>
+      <element name="monthlyContributionQuery1Return" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="depositIntoRetirementAccount">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="p" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="depositIntoRetirementAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="depositIntoRetirementAccountReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="monthlyContributionQuery1Request">
+
+      <wsdl:part element="impl:monthlyContributionQuery1" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdRequest">
+
+      <wsdl:part element="impl:getId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="depositIntoRetirementAccountRequest">
+
+      <wsdl:part element="impl:depositIntoRetirementAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="monthlyContributionQueryRequest">
+
+      <wsdl:part element="impl:monthlyContributionQuery" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="depositIntoRetirementAccountResponse">
+
+      <wsdl:part element="impl:depositIntoRetirementAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="monthlyContributionQuery1Response">
+
+      <wsdl:part element="impl:monthlyContributionQuery1Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="monthlyContributionQueryResponse">
+
+      <wsdl:part element="impl:monthlyContributionQueryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdResponse">
+
+      <wsdl:part element="impl:getIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="RetirementContributionQueryandDeposit">
+
+      <wsdl:operation name="getId">
+
+         <wsdl:input message="impl:getIdRequest" name="getIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getIdResponse" name="getIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="monthlyContributionQuery">
+
+         <wsdl:input message="impl:monthlyContributionQueryRequest" name="monthlyContributionQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:monthlyContributionQueryResponse" name="monthlyContributionQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="monthlyContributionQuery1">
+
+         <wsdl:input message="impl:monthlyContributionQuery1Request" name="monthlyContributionQuery1Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:monthlyContributionQuery1Response" name="monthlyContributionQuery1Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="depositIntoRetirementAccount">
+
+         <wsdl:input message="impl:depositIntoRetirementAccountRequest" name="depositIntoRetirementAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:depositIntoRetirementAccountResponse" name="depositIntoRetirementAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RetirementContributionQueryandDepositSoapBinding" type="impl:RetirementContributionQueryandDeposit">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="monthlyContributionQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="monthlyContributionQueryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="monthlyContributionQueryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="monthlyContributionQuery1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="monthlyContributionQuery1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="monthlyContributionQuery1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="depositIntoRetirementAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="depositIntoRetirementAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="depositIntoRetirementAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RetirementContributionQueryandDepositService">
+
+      <wsdl:port binding="impl:RetirementContributionQueryandDepositSoapBinding" name="RetirementContributionQueryandDeposit">
+
+         <wsdlsoap:address location="http://localhost:5001/WEBSOC/services/RetirementContributionQueryandDeposit"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

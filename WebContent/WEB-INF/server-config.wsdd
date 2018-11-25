@@ -1,0 +1,320 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="/Users/hassanalikhan/Documents/workspace/SOC/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/WEBSOC/WEB-INF/attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="RetirementContributionQueryandDeposit" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="getId" qname="ns1:getId" returnQName="ns1:getIdReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:id" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:operation name="monthlyContributionQuery" qname="ns2:monthlyContributionQuery" returnQName="ns2:monthlyContributionQueryReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="monthlyContributionQuery1" qname="ns3:monthlyContributionQuery1" returnQName="ns3:monthlyContributionQuery1Return" returnType="xsd:int" soapAction="" xmlns:ns3="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="depositIntoRetirementAccount" qname="ns4:depositIntoRetirementAccount" returnQName="ns4:depositIntoRetirementAccountReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:id" type="xsd:string"/>
+   <ns1:parameter qname="ns4:p" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="depositIntoRetirementAccount monthlyContributionQuery1 monthlyContributionQuery getId"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="RetirementContributionQueryandDeposit"/>
+  <ns1:parameter name="className" value="Phase1.RetirementContributionQueryandDeposit"/>
+  <ns1:parameter name="wsdlServicePort" value="RetirementContributionQueryandDeposit"/>
+  <ns1:parameter name="schemaQualified" value="http://Phase1"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Phase1"/>
+  <ns1:parameter name="wsdlServiceElement" value="RetirementContributionQueryandDepositService"/>
+ </ns1:service>
+ <ns1:service name="tempClass2" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="updateSharePerEmployee" qname="ns5:updateSharePerEmployee" returnQName="ns5:updateSharePerEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:item" type="xsd:string"/>
+   <ns1:parameter qname="ns5:cat" type="xsd:string"/>
+   <ns1:parameter qname="ns5:symbol" type="xsd:string"/>
+   <ns1:parameter qname="ns5:ts" type="xsd:string"/>
+   <ns1:parameter qname="ns5:totalam" type="xsd:int"/>
+   <ns1:parameter qname="ns5:ttype" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="toBeUpSold" qname="ns6:toBeUpSold" returnQName="ns6:toBeUpSoldReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:id" type="xsd:string"/>
+   <ns1:parameter qname="ns6:string" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="toBeBought" qname="ns7:toBeBought" returnQName="ns7:toBeBoughtReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:id" type="xsd:string"/>
+   <ns1:parameter qname="ns7:string" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="toBeUpSold updateSharePerEmployee toBeBought"/>
+  <ns1:parameter name="wsdlPortType" value="tempClass2"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://Phase2"/>
+  <ns1:parameter name="wsdlServicePort" value="tempClass2"/>
+  <ns1:parameter name="className" value="Phase2.tempClass2"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Phase2"/>
+  <ns1:parameter name="wsdlServiceElement" value="tempClass2Service"/>
+ </ns1:service>
+ <ns1:service name="SymbolLookupServices" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="stockSymbolByCategorynumSymbol" qname="ns8:stockSymbolByCategorynumSymbol" returnQName="ns8:stockSymbolByCategorynumSymbolReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:id" type="xsd:int"/>
+   <ns1:parameter qname="ns8:category" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="stockSymbolByCategoryCurrency" qname="ns9:stockSymbolByCategoryCurrency" returnQName="ns9:stockSymbolByCategoryCurrencyReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:id" type="xsd:int"/>
+   <ns1:parameter qname="ns9:category" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="stockSymbolByCategory" qname="ns10:stockSymbolByCategory" returnQName="ns10:stockSymbolByCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:category" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="commoditySymbolByCategory" qname="ns11:commoditySymbolByCategory" returnQName="ns11:commoditySymbolByCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:category" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="symbolByName" qname="ns12:symbolByName" returnQName="ns12:symbolByNameReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns12:name" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="sayHelloWorld" qname="ns13:sayHelloWorld" returnQName="ns13:sayHelloWorldReturn" returnType="xsd:string" soapAction="" xmlns:ns13="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:exchange" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="symbolByExchange" qname="ns14:symbolByExchange" returnQName="ns14:symbolByExchangeReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns14:exchange" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="stockSymbolByCategorynum" qname="ns15:stockSymbolByCategorynum" returnQName="ns15:stockSymbolByCategorynumReturn" returnType="xsd:int" soapAction="" xmlns:ns15="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns15:category" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="stockSymbolByCategorynum stockSymbolByCategory symbolByExchange stockSymbolByCategoryCurrency stockSymbolByCategorynumSymbol sayHelloWorld symbolByName commoditySymbolByCategory"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="SymbolLookupServices"/>
+  <ns1:parameter name="className" value="Phase1.SymbolLookupServices"/>
+  <ns1:parameter name="wsdlServicePort" value="SymbolLookupServices"/>
+  <ns1:parameter name="schemaQualified" value="http://Phase1"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Phase1"/>
+  <ns1:parameter name="wsdlServiceElement" value="SymbolLookupServicesService"/>
+ </ns1:service>
+ <ns1:service name="SymbolLookupService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="stockSymbolByCategory" qname="ns16:stockSymbolByCategory" returnQName="ns16:stockSymbolByCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns16="http://FatimaProj" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns16:category" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="commoditySymbolByCategory" qname="ns17:commoditySymbolByCategory" returnQName="ns17:commoditySymbolByCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns17="http://FatimaProj" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns17:category" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="symbolByName" qname="ns18:symbolByName" returnQName="ns18:symbolByNameReturn" returnType="xsd:string" soapAction="" xmlns:ns18="http://FatimaProj" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns18:name" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="symbolByExchange" qname="ns19:symbolByExchange" returnQName="ns19:symbolByExchangeReturn" returnType="xsd:string" soapAction="" xmlns:ns19="http://FatimaProj" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns19:exchange" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="stockSymbolByCategory symbolByExchange symbolByName commoditySymbolByCategory"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="SymbolLookupService"/>
+  <ns1:parameter name="className" value="FatimaProj.SymbolLookupService"/>
+  <ns1:parameter name="wsdlServicePort" value="SymbolLookupService"/>
+  <ns1:parameter name="schemaQualified" value="http://FatimaProj"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://FatimaProj"/>
+  <ns1:parameter name="wsdlServiceElement" value="SymbolLookupServiceService"/>
+ </ns1:service>
+ <ns1:service name="tempClass3" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="sellShares" qname="ns20:sellShares" returnQName="ns20:sellSharesReturn" returnType="xsd:string" soapAction="" xmlns:ns20="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns20:str" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="aggregateAmountPerItemCategory1" qname="ns21:aggregateAmountPerItemCategory1" returnQName="ns21:aggregateAmountPerItemCategory1Return" returnType="xsd:string" soapAction="" xmlns:ns21="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns21:item" type="xsd:string"/>
+   <ns1:parameter qname="ns21:cat" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateSharePerEmployee" qname="ns22:updateSharePerEmployee" returnQName="ns22:updateSharePerEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns22="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns22:item" type="xsd:string"/>
+   <ns1:parameter qname="ns22:cat" type="xsd:string"/>
+   <ns1:parameter qname="ns22:symbol" type="xsd:string"/>
+   <ns1:parameter qname="ns22:ts" type="xsd:string"/>
+   <ns1:parameter qname="ns22:totalam" type="xsd:string"/>
+   <ns1:parameter qname="ns22:ttype" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="buyShares" qname="ns23:buyShares" returnQName="ns23:buySharesReturn" returnType="xsd:string" soapAction="" xmlns:ns23="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns23:str" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getUSD" qname="ns24:getUSD" returnQName="ns24:getUSDReturn" returnType="xsd:string" soapAction="" xmlns:ns24="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getstrtoint" qname="ns25:getstrtoint" returnQName="ns25:getstrtointReturn" returnType="xsd:int" soapAction="" xmlns:ns25="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns25:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="remun" qname="ns26:remun" returnQName="ns26:remunReturn" returnType="xsd:int" soapAction="" xmlns:ns26="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns26:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="remun aggregateAmountPerItemCategory1 sellShares getUSD updateSharePerEmployee getstrtoint buyShares"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="tempClass3"/>
+  <ns1:parameter name="className" value="Phase2.tempClass3"/>
+  <ns1:parameter name="wsdlServicePort" value="tempClass3"/>
+  <ns1:parameter name="schemaQualified" value="http://Phase2"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Phase2"/>
+  <ns1:parameter name="wsdlServiceElement" value="tempClass3Service"/>
+ </ns1:service>
+ <ns1:service name="tempClass" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="sellShares" qname="ns27:sellShares" returnQName="ns27:sellSharesReturn" returnType="xsd:string" soapAction="" xmlns:ns27="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns27:str" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="aggregateAmountPerItemCategory1" qname="ns28:aggregateAmountPerItemCategory1" returnQName="ns28:aggregateAmountPerItemCategory1Return" returnType="xsd:string" soapAction="" xmlns:ns28="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns28:item" type="xsd:string"/>
+   <ns1:parameter qname="ns28:cat" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateSharePerEmployee" qname="ns29:updateSharePerEmployee" returnQName="ns29:updateSharePerEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns29="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns29:item" type="xsd:string"/>
+   <ns1:parameter qname="ns29:cat" type="xsd:string"/>
+   <ns1:parameter qname="ns29:symbol" type="xsd:string"/>
+   <ns1:parameter qname="ns29:ts" type="xsd:string"/>
+   <ns1:parameter qname="ns29:totalam" type="xsd:string"/>
+   <ns1:parameter qname="ns29:ttype" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="buyShares" qname="ns30:buyShares" returnQName="ns30:buySharesReturn" returnType="xsd:string" soapAction="" xmlns:ns30="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns30:str" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="aggregateAmountPerItemCategory1 sellShares updateSharePerEmployee buyShares"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="tempClass"/>
+  <ns1:parameter name="className" value="Phase2.tempClass"/>
+  <ns1:parameter name="wsdlServicePort" value="tempClass"/>
+  <ns1:parameter name="schemaQualified" value="http://Phase2"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Phase2"/>
+  <ns1:parameter name="wsdlServiceElement" value="tempClassService"/>
+ </ns1:service>
+ <ns1:service name="Class3rdPartyServices" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="converToFrom" qname="ns31:converToFrom" returnQName="ns31:converToFromReturn" returnType="xsd:string" soapAction="" xmlns:ns31="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns31:from" type="xsd:string"/>
+   <ns1:parameter qname="ns31:to" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getQuoteAm" qname="ns32:getQuoteAm" returnQName="ns32:getQuoteAmReturn" returnType="xsd:string" soapAction="" xmlns:ns32="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns32:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getQuotePr" qname="ns33:getQuotePr" returnQName="ns33:getQuotePrReturn" returnType="xsd:string" soapAction="" xmlns:ns33="http://Phase2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns33:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="converToFrom getQuoteAm getQuotePr"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Class3rdPartyServices"/>
+  <ns1:parameter name="className" value="Phase2.Class3rdPartyServices"/>
+  <ns1:parameter name="wsdlServicePort" value="Class3rdPartyServices"/>
+  <ns1:parameter name="schemaQualified" value="http://Phase2"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Phase2"/>
+  <ns1:parameter name="wsdlServiceElement" value="Class3rdPartyServicesService"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="PortfolioManagementService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getItem" qname="ns34:getItem" returnQName="ns34:getItemReturn" returnType="xsd:string" soapAction="" xmlns:ns34="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns34:c" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="noOfEmps" qname="ns35:noOfEmps" returnQName="ns35:noOfEmpsReturn" returnType="xsd:int" soapAction="" xmlns:ns35="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns35:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="noOfics" qname="ns36:noOfics" returnQName="ns36:noOficsReturn" returnType="xsd:int" soapAction="" xmlns:ns36="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns36:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getCat" qname="ns37:getCat" returnQName="ns37:getCatReturn" returnType="xsd:string" soapAction="" xmlns:ns37="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns37:c" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="updateEmployeeRetirementContribution" qname="ns38:updateEmployeeRetirementContribution" returnQName="ns38:updateEmployeeRetirementContributionReturn" returnType="xsd:string" soapAction="" xmlns:ns38="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns38:id" type="xsd:string"/>
+   <ns1:parameter qname="ns38:percentage" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="createPortFolio" qname="ns39:createPortFolio" returnQName="ns39:createPortFolioReturn" returnType="xsd:string" soapAction="" xmlns:ns39="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns39:id" type="xsd:string"/>
+   <ns1:parameter qname="ns39:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getIdstr" qname="ns40:getIdstr" returnQName="ns40:getIdstrReturn" returnType="xsd:string" soapAction="" xmlns:ns40="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns40:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getRemstr" qname="ns41:getRemstr" returnQName="ns41:getRemstrReturn" returnType="xsd:string" soapAction="" xmlns:ns41="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns41:s" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updatePortFolio" qname="ns42:updatePortFolio" returnQName="ns42:updatePortFolioReturn" returnType="xsd:string" soapAction="" xmlns:ns42="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns42:id" type="xsd:string"/>
+   <ns1:parameter qname="ns42:string" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="queryPortFolio" qname="ns43:queryPortFolio" returnQName="ns43:queryPortFolioReturn" returnType="xsd:string" soapAction="" xmlns:ns43="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns43:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="accountSummary" qname="ns44:accountSummary" returnQName="ns44:accountSummaryReturn" returnType="xsd:string" soapAction="" xmlns:ns44="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns44:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="viewAccountDetails" qname="ns45:viewAccountDetails" returnQName="ns45:viewAccountDetailsReturn" returnType="xsd:string" soapAction="" xmlns:ns45="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns45:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="aggregateAmountPerItemCategory1" qname="ns46:aggregateAmountPerItemCategory1" returnQName="ns46:aggregateAmountPerItemCategory1Return" returnType="xsd:int" soapAction="" xmlns:ns46="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns46:item" type="xsd:string"/>
+   <ns1:parameter qname="ns46:cat" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="aggregateAmountPerItemCategory" qname="ns47:aggregateAmountPerItemCategory" returnQName="ns47:aggregateAmountPerItemCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns47="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns47:item" type="xsd:string"/>
+   <ns1:parameter qname="ns47:cat" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateSharePerEmployee" qname="ns48:updateSharePerEmployee" returnQName="ns48:updateSharePerEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns48="http://Phase1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns48:item" type="xsd:string"/>
+   <ns1:parameter qname="ns48:cat" type="xsd:string"/>
+   <ns1:parameter qname="ns48:symbol" type="xsd:string"/>
+   <ns1:parameter qname="ns48:ts" type="xsd:string"/>
+   <ns1:parameter qname="ns48:totalam" type="xsd:string"/>
+   <ns1:parameter qname="ns48:ttype" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="createPortFolio updateEmployeeRetirementContribution updateSharePerEmployee noOfEmps aggregateAmountPerItemCategory getCat getRemstr accountSummary getIdstr aggregateAmountPerItemCategory1 getItem updatePortFolio viewAccountDetails noOfics queryPortFolio"/>
+  <ns1:parameter name="wsdlPortType" value="PortfolioManagementService"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://Phase1"/>
+  <ns1:parameter name="wsdlServicePort" value="PortfolioManagementService"/>
+  <ns1:parameter name="className" value="Phase1.PortfolioManagementService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Phase1"/>
+  <ns1:parameter name="wsdlServiceElement" value="PortfolioManagementServiceService"/>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="DelayedStockQuoteService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="symbolByExchange" qname="ns49:symbolByExchange" returnQName="ns49:symbolByExchangeReturn" returnType="xsd:string" soapAction="" xmlns:ns49="http://FatimaProj" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns49:exchange" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="symbolByExchange"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="DelayedStockQuoteService"/>
+  <ns1:parameter name="className" value="FatimaProj.DelayedStockQuoteService"/>
+  <ns1:parameter name="wsdlServicePort" value="DelayedStockQuoteService"/>
+  <ns1:parameter name="schemaQualified" value="http://FatimaProj"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://FatimaProj"/>
+  <ns1:parameter name="wsdlServiceElement" value="DelayedStockQuoteServiceService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

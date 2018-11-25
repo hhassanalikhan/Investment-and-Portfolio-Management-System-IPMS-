@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from PortfolioManagementServiceService WSDL service -->
+
+  <service name="PortfolioManagementService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Phase1"/>
+      <parameter name="wsdlServiceElement" value="PortfolioManagementServiceService"/>
+      <parameter name="schemaQualified" value="http://Phase1"/>
+      <parameter name="wsdlServicePort" value="PortfolioManagementService"/>
+      <parameter name="className" value="Phase1.PortfolioManagementService"/>
+      <parameter name="wsdlPortType" value="PortfolioManagementService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getItem" qname="operNS:getItem" returnQName="retNS:getItemReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:c" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="noOfEmps" qname="operNS:noOfEmps" returnQName="retNS:noOfEmpsReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:s" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="noOfics" qname="operNS:noOfics" returnQName="retNS:noOficsReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:s" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCat" qname="operNS:getCat" returnQName="retNS:getCatReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:c" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateEmployeeRetirementContribution" qname="operNS:updateEmployeeRetirementContribution" returnQName="retNS:updateEmployeeRetirementContributionReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:percentage" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createPortFolio" qname="operNS:createPortFolio" returnQName="retNS:createPortFolioReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:s" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getIdstr" qname="operNS:getIdstr" returnQName="retNS:getIdstrReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:s" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getRemstr" qname="operNS:getRemstr" returnQName="retNS:getRemstrReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:s" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updatePortFolio" qname="operNS:updatePortFolio" returnQName="retNS:updatePortFolioReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:string" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryPortFolio" qname="operNS:queryPortFolio" returnQName="retNS:queryPortFolioReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="accountSummary" qname="operNS:accountSummary" returnQName="retNS:accountSummaryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="viewAccountDetails" qname="operNS:viewAccountDetails" returnQName="retNS:viewAccountDetailsReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="aggregateAmountPerItemCategory1" qname="operNS:aggregateAmountPerItemCategory1" returnQName="retNS:aggregateAmountPerItemCategory1Return" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cat" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="aggregateAmountPerItemCategory" qname="operNS:aggregateAmountPerItemCategory" returnQName="retNS:aggregateAmountPerItemCategoryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cat" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://Phase1" xmlns:retNS="http://Phase1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateSharePerEmployee" qname="operNS:updateSharePerEmployee" returnQName="retNS:updateSharePerEmployeeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cat" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:symbol" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ts" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:totalam" type="tns:string"/>
+        <parameter xmlns:pns="http://Phase1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ttype" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="createPortFolio updateEmployeeRetirementContribution updateSharePerEmployee noOfEmps aggregateAmountPerItemCategory getCat getRemstr accountSummary getIdstr aggregateAmountPerItemCategory1 getItem updatePortFolio viewAccountDetails noOfics queryPortFolio"/>
+
+  </service>
+</deployment>
